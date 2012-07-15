@@ -117,6 +117,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 
     'djcelery',
+    'gunicorn',
     'kombu.transport.django',
     'social_auth',
     'south',
