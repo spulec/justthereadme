@@ -68,6 +68,7 @@ GITHUB_APP_SECRET = os.environ.get('GITHUB_APP_SECRET', '')
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
 AWS_BUCKET_NAME = 'justthereadme'
+SENTRY_DSN = os.environ.get('SENTRY_DSN', '')
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -121,6 +122,7 @@ INSTALLED_APPS = (
     'kombu.transport.django',
     'social_auth',
     'south',
+    'raven.contrib.django',
 
     'repos',
 )
