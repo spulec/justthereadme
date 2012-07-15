@@ -41,8 +41,8 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
-MEDIA_ROOT = ''
-MEDIA_URL = ''
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static')
+MEDIA_URL = 'http://s3.amazonaws.com/justthereadme/'
 STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
@@ -64,6 +64,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 GITHUB_APP_ID = os.environ.get('GITHUB_APP_ID', '')
 GITHUB_APP_SECRET = os.environ.get('GITHUB_APP_SECRET', '')
+
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
+AWS_BUCKET_NAME = 'justthereadme'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -111,6 +115,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
 
+    'django_extensions',
     'djcelery',
     'gunicorn',
     'kombu.transport.django',

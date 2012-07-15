@@ -9,5 +9,6 @@ if __name__ == "__main__":
     from django.core.management import execute_from_command_line
 
     sys.path.insert(0, abspath(join(dirname(__file__), "justthereadme")))
+    sys.path.insert(0, abspath(join(dirname(__file__), "justthereadme", "apps")))
 
     execute_from_command_line(sys.argv)

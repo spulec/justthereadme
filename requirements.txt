@@ -17,3 +17,4 @@ python-dateutil==1.5
 python-openid==2.2.5
 requests==0.13.3
 wsgiref==0.1.2
+http://github.com/Yipit/django-extensions/tarball/8316af95ba03d9067b32427ac147ecf5b528b2fe
