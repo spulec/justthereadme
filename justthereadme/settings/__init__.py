@@ -87,9 +87,9 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-LOGIN_URL = '/login-form/'
+LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/'
-LOGIN_ERROR_URL = '/login-error/'
+LOGIN_ERROR_URL = '/'
 
 AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.github.GithubBackend',
