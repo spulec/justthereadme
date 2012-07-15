@@ -44,7 +44,7 @@ USE_TZ = True
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static')
 MEDIA_URL = 'http://s3.amazonaws.com/justthereadme/'
 STATIC_ROOT = ''
-STATIC_URL = '/static/'
+STATIC_URL = 'http://justthereadme.s3.amazonaws.com/'
 
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
