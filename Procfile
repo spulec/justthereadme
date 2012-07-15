@@ -1,1 +1,1 @@
-web: gunicorn justthereadme.wsgi:application -b 0.0.0.0:$PORT
+web: gunicorn justthereadme.wsgi:application -b 0.0.0.0:$PORT -c justthereadme/gunicorn.conf

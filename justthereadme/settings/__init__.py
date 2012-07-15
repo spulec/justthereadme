@@ -60,10 +60,10 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
-GITHUB_APP_ID = os.environ['GITHUB_APP_ID']
-GITHUB_APP_SECRET = os.environ['GITHUB_APP_SECRET']
+GITHUB_APP_ID = os.environ.get('GITHUB_APP_ID', '')
+GITHUB_APP_SECRET = os.environ.get('GITHUB_APP_SECRET', '')
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
