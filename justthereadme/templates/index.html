@@ -10,10 +10,17 @@
   <hr>
   {% for repo in repos %}
   <div class="hero-unit">
-    <h2>{{ repo.name }}</h2>
-    <p>
-      {{ repo.readme_text }}
-    </p>
+    <div class="repo_meta">
+        <a href="{{ repo.url }}">Link</a>
+        <p>{{ repo.user.username }}</p>
+    </div>
+    {% if repo.readme_text %}
+        <p>
+          {{ repo.formatted_readme }}
+        </p>
+    {% else %}
+        <h1>{{ repo.name }}</h1>
+    {% endif %}
   </div>
   <hr>
   {% endfor %}

@@ -18,7 +18,7 @@ def update_user_repos(user_id):
     github = Github(access_token)
     for repo in github.get_user().get_repos():
         new_repo, created = Repository.objects.get_or_create(user=user, name=repo.name, defaults={
-            'url': repo.url,
+            'url': repo.html_url,
             'readme_text': '',
         })
         if created:

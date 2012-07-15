@@ -5,8 +5,8 @@
     <div class="hero-unit">
       <h2>{{ repo.name }}</h2>
       <div class="btn-group" data-toggle="buttons-radio">
-        <button class="btn btn-primary{% if repo.active %} active{% endif %}" data-loading-text="loading stuff...">Active</button>
-        <button class="btn btn-primary{% if not repo.active %} active{% endif %}" data-loading-text="loading stuff...">Inactive</button>
+        <button class="btn btn-primary{% if repo.active %} active{% endif %}" data-loading-text="loading stuff..." data-url="{% url activate_repo repo_id=repo.id %}">Active</button>
+        <button class="btn btn-primary{% if not repo.active %} active{% endif %}" data-loading-text="loading stuff..." data-url="{% url deactivate_repo repo_id=repo.id %}">Inactive</button>
       </div>
       <p>
         {{ repo.readme_text }}
@@ -17,6 +17,14 @@
 {% endblock %}
 
 {% block extra_js %}
-$().button('loading')
-$().button('reset')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("button.btn").click(function() {
+                var url = $(this).data('url');
+                $.post(url, {}, function(){
+
+                });
+            });
+        });
+    </script>
 {% endblock %}
