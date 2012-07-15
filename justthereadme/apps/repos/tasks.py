@@ -5,11 +5,11 @@ import requests
 
 from django.contrib.auth.models import User
 
-from repos.models import Repository
-
 
 @task
 def update_user_repos(user_id):
+    from repos.models import Repository
+
     user = User.objects.get(id=user_id)
     github_user = user.social_auth.get(provider='github')
     access_token = github_user.extra_data.get('access_token')
@@ -27,6 +27,8 @@ def update_user_repos(user_id):
 
 @task
 def update_repository(repository_id):
+    from repos.models import Repository
+
     repository = Repository.objects.get(id=repository_id)
     base_url = u"https://api.github.com/repos/{user}/{repo_name}/readme"
     url = base_url.format(user=repository.user.username, repo_name=repository.name)

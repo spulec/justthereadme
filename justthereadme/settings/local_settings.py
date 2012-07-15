@@ -1,5 +1,5 @@
 from settings import *
-
+DEBUG = True
 CELERY_ALWAYS_EAGER = True
 
 DATABASES = {
