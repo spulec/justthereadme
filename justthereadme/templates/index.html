@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="hero-unit">
+    <h1>Hello, world!</h1>
+    <p>
+        {{ message }}
+    </p>
+  </div>
+  <hr>
+  {% for repo in repos %}
+  <div class="hero-unit">
+    <h2>{{ repo.name }}</h2>
+    <p>
+      {{ repo.readme_text }}
+    </p>
+  </div>
+  <hr>
+  {% endfor %}
+{% endblock %}

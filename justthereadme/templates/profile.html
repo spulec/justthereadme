@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for repo in repos %}
+    <div class="hero-unit">
+      <h2>{{ repo.name }}</h2>
+      <div class="btn-group" data-toggle="buttons-radio">
+        <button class="btn btn-primary{% if repo.active %} active{% endif %}" data-loading-text="loading stuff...">Active</button>
+        <button class="btn btn-primary{% if not repo.active %} active{% endif %}" data-loading-text="loading stuff...">Inactive</button>
+      </div>
+      <p>
+        {{ repo.readme_text }}
+      </p>
+    </div>
+    <hr>
+  {% endfor %}
+{% endblock %}
+
+{% block extra_js %}
+$().button('loading')
+$().button('reset')
+{% endblock %}
