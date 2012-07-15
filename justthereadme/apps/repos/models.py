@@ -1,5 +1,6 @@
 from docutils.core import publish_parts
 from docutils.writers.html4css1 import Writer
+from social_auth.signals import socialauth_registered
 
 SETTINGS = {
     'cloak_email_addresses': True,
@@ -14,6 +15,7 @@ from django.db import models
 from django.utils.safestring import mark_safe
 
 from repos.managers import RepositoryManager
+from repos.tasks import update_user_repos
 
 
 class Repository(models.Model):
@@ -36,3 +38,9 @@ class Repository(models.Model):
     @property
     def formatted_html(self):
         return mark_safe(publish_parts(self.readme_text, writer=Writer(), settings_overrides=SETTINGS)['html_body'])
+
+
+def new_users_handler(sender, user, response, details, **kwargs):
+    update_user_repos.delay(user.id)
+
+socialauth_registered.connect(new_users_handler, sender=None)
