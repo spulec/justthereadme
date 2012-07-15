@@ -4,14 +4,14 @@ South==0.7.5
 amqplib==1.0.2
 anyjson==0.3.3
 billiard==2.7.3.10
-celery==3.0.1
+celery==2.5.5
 dj-database-url==0.2.1
-django-celery==3.0.1
+django-celery==2.5.5
 django-social-auth==0.7.0
 docutils==0.9.1
 gunicorn==0.14.5
 httplib2==0.7.4
-kombu==2.2.6
+kombu==2.2.0
 oauth2==1.5.211
 psycopg2==2.4.5
 python-dateutil==1.5
