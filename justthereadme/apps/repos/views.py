@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
 from django.http import HttpResponse, HttpResponseForbidden
 from django.shortcuts import get_object_or_404
 from django.utils.decorators import method_decorator
@@ -12,10 +13,13 @@ class HomeView(TemplateView):
     template_name = 'index.html'
 
     def get(self, request, *args, **kwargs):
-        # TODO setup cache
-        repos = Repository.objects.active()
-        for repo in repos:
-            repo.formatted_readme = repo.formatted_html
+        key = 'repos'
+        repos = cache.get(key)
+        if not repos:
+            repos = Repository.objects.active()
+            for repo in repos:
+                repo.formatted_readme = repo.formatted_html
+            cache.set(key, repos, 300)
         context = {'repos': repos, 'navbar': 'home'}
         return self.render_to_response(context)
 
