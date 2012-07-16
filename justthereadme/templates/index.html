@@ -8,14 +8,18 @@
   <hr>
   {% for repo in repos %}
   <div class="hero-unit">
-    <div class="repo_meta">
-        <p>Author: <a href="http://github.com/{{ repo.user.username }}">{{ repo.user.username }}</a></p>
-        <a href="{{ repo.url }}">Link</a>
+    <div class="repo_meta control-group">
+        <div class="controls">
+            <div class="input-prepend">
+                <span class="add-on">
+                    <a href="http://github.com/{{ repo.user.username }}"><i class="icon-user"></i></a>
+                    <a href="{{ repo.url }}"><i class="icon-home"></i></a>
+                </span>
+            </div>
+        </div>
     </div>
     {% if repo.readme_text %}
-        <p>
-          {{ repo.formatted_readme }}
-        </p>
+      {{ repo.formatted_readme }}
     {% else %}
         <h1>{{ repo.name }}</h1>
     {% endif %}

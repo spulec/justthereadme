@@ -16,12 +16,15 @@ class HomeView(TemplateView):
         repos = Repository.objects.active()
         for repo in repos:
             repo.formatted_readme = repo.formatted_html
-        context = {'repos': repos}
+        context = {'repos': repos, 'navbar': 'home'}
         return self.render_to_response(context)
 
 
 class AboutView(TemplateView):
     template_name = 'about.html'
+
+    def get(self, request, *args, **kwargs):
+        return self.render_to_response({'navbar': 'about'})
 
 
 class ProfileView(TemplateView):
