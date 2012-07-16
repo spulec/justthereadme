@@ -63,7 +63,7 @@ STATICFILES_FINDERS = (
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 GITHUB_APP_ID = os.environ.get('GITHUB_APP_ID', '')
-GITHUB_APP_SECRET = os.environ.get('GITHUB_APP_SECRET', '')
+GITHUB_API_SECRET = os.environ.get('GITHUB_API_SECRET', '')
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')

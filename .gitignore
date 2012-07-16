@@ -1,3 +1,4 @@
+celerybeat-schedule
 .env
 TODO.txt
 justthereadme/db

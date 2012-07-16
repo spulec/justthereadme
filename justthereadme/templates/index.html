@@ -1,18 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="hero-unit">
-    <h1>Hello, world!</h1>
-    <p>
-        {{ message }}
-    </p>
-  </div>
+  <h2>Welcome to Just The README!</h2>
+  <p>
+    Lorem ipsum. asfdljasl lsdjf lsj flsaj .
+  </p>
   <hr>
   {% for repo in repos %}
   <div class="hero-unit">
     <div class="repo_meta">
+        <p>Author: <a href="http://github.com/{{ repo.user.username }}">{{ repo.user.username }}</a></p>
         <a href="{{ repo.url }}">Link</a>
-        <p>{{ repo.user.username }}</p>
     </div>
     {% if repo.readme_text %}
         <p>
