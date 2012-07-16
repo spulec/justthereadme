@@ -135,7 +135,7 @@
           <script>
               $(document).ready(function() {
                   var user_image = Gravatar.get_gravatar("{{ user.email }}", 16);
-                  $('.icon-user').replaceWith('<img src="' + user_image + '" />');
+                  $('.icon-user').first().replaceWith('<img src="' + user_image + '" />');
               });
           </script>
       {% endif %}

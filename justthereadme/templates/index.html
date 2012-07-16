@@ -1,10 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>Welcome to Just The README!</h2>
-  <p>
-    Lorem ipsum. asfdljasl lsdjf lsj flsaj .
-  </p>
+  <div class="hero-unit">
+      <h2>Have you ever:</h2>
+        <ul class="unstyled">
+            <li>&#x2026; had multiple ideas for libraries and not known which one to start working on?</li>
+            <li>&#x2026; had a 10,000 foot perspective for a library, but not the domain expertise to implement it?</li>
+            <li>&#x2026; wanted to bring a living implementation to someone else's perfect interface?</li>
+        </ul>
+      <hr />
+      <p>
+        These aren't your normal Github projects. Consider them a first piece found in a lost puzzle, a leading clue in a scavenger hunt adventure, the instructions to your LEGO block set.
+      </p>
+      <p>
+        They're not full projects — they're just the readme.
+      </p>
+  </div>
   <hr>
   {% for repo in repos %}
   <div class="hero-unit">
